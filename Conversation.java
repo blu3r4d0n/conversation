@@ -66,7 +66,7 @@ public class Conversation extends JPanel
 	}
 	public void report() //tells the rulers to report
 	{
-	for (int i=0; i < numRulers; i++) //each ruler reportscs
+	for (int i=0; i < numRulers; i++) //each ruler reports
 		rulerList[i].report();
 	}
 }
