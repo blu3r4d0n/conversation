@@ -37,12 +37,12 @@ public class Conversation extends JPanel
 	}
 	public void createRulers() //adds each ruler to the array and creates rulers
 	{
-	 rulerList[0] = new Ruler( "Abraham Lincoln", "President", "America", "Americans", "Howdy", Color.blue,new ImageIcon("lincoln.gif") );
-	 rulerList[1] = new Ruler("Cleopatra", "Pharoh", "Egypt", "Egyptians", "Marhaban", Color.green, new ImageIcon("cleo.jpeg"));
-	 rulerList[2] = new Ruler("Hitler", "Fuhrer", "Germany", "Germans", "Guten Tag", Color.red, new ImageIcon("hitler.jpg"));
-	 rulerList[3] = new Ruler("Napoleon", "Emperor", "France", "French", "Bonjour", Color.pink, new ImageIcon("napoleon.jpg"));
-	 rulerList[4] = new Ruler("Churchhill", "Prime Minister", "Britain", "British", "Good day", Color.magenta, new ImageIcon("winston.jpg"));
-	 rulerList[5] = new Ruler("Mao Zedong", "Chairman", "China", "Chinese", "Ni hao", Color.black, new ImageIcon("mao.jpeg"));
+	 rulerList[0] = new Ruler( "Abraham Lincoln", "President", "America", "Americans", "Howdy", Color.blue,new ImageIcon("src/images/lincoln.gif") );
+	 rulerList[1] = new Ruler("Cleopatra", "Pharoh", "Egypt", "Egyptians", "Marhaban", Color.green, new ImageIcon("src/images/cleo.jpeg"));
+	 rulerList[2] = new Ruler("Hitler", "Fuhrer", "Germany", "Germans", "Guten Tag", Color.red, new ImageIcon("src/images/hitler.jpg"));
+	 rulerList[3] = new Ruler("Napoleon", "Emperor", "France", "French", "Bonjour", Color.pink, new ImageIcon("src/images/napoleon.jpg"));
+	 rulerList[4] = new Ruler("Churchhill", "Prime Minister", "Britain", "British", "Good day", Color.magenta, new ImageIcon("src/images/winston.jpg"));
+	 rulerList[5] = new Ruler("Mao Zedong", "Chairman", "China", "Chinese", "Ni hao", Color.black, new ImageIcon("src/images/mao.jpeg"));
 	}
 	public void identifyRulers() //Tells rulers to identify themselves
 	{
