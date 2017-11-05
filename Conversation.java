@@ -37,7 +37,7 @@ public class Conversation extends JPanel
 	}
 	public void createRulers() //adds each ruler to the array and creates rulers
 	{
-	 rulerList[0] = new Ruler( "Abraham Lincoln", "President", "America", "Americans", "Howdy", Color.blue,new ImageIcon("src/images/lincoln.gif") );
+	 rulerList[0] = new Ruler( "Abraham Lincoln", "President", "America", "Americans", "Howdy", Color.blue,new ImageIcon("src/images/lincoln.jpeg") );
 	 rulerList[1] = new Ruler("Cleopatra", "Pharoh", "Egypt", "Egyptians", "Marhaban", Color.green, new ImageIcon("src/images/cleo.jpeg"));
 	 rulerList[2] = new Ruler("Hitler", "Fuhrer", "Germany", "Germans", "Guten Tag", Color.red, new ImageIcon("src/images/hitler.jpg"));
 	 rulerList[3] = new Ruler("Napoleon", "Emperor", "France", "French", "Bonjour", Color.pink, new ImageIcon("src/images/napoleon.jpg"));
