@@ -54,6 +54,7 @@ public class Ruler extends JPanel
 		color = clr;
 		
 		setPreferredSize(new Dimension (500, 300));
+		setLayout(new BorderLayout());
 	}
 		
 	public void identify() //I identify myself
