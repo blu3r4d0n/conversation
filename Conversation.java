@@ -25,10 +25,6 @@ public class Conversation extends JPanel
 		setBackground(Color.yellow);
 		setPreferredSize(new Dimension(1100, 900));
 		createRulers();
-		for (int i=0; i < numRulers; i++)
-		{
-		add(rulerList[i]);
-		}
 		identifyRulers();
 		System.out.println();
 		converse();
@@ -68,5 +64,12 @@ public class Conversation extends JPanel
 	{
 	for (int i=0; i < numRulers; i++) //each ruler reports
 		rulerList[i].report();
+	}
+	public void addRulers() //adds rulers to the graphics 
+	{
+	for (int i=0; i < numRulers; i++)
+		{
+		add(rulerList[i]);
+		}
 	}
 }
