@@ -56,9 +56,9 @@ public class Ruler extends JPanel
 		setPreferredSize(new Dimension (500, 300));
 		picLabel = new JLabel("Picture Area");
 		setLayout(new BorderLayout());
-		idLabel = new JLabel("ID Label");
+		idLabel = new JLabel("ID Label", SwingConstants.CENTER);
 		add(idLabel, BorderLayout.NORTH);	
-		
+			
 	}
 		
 	public void identify() //I identify myself
@@ -68,7 +68,7 @@ public class Ruler extends JPanel
 		picLabel.setIcon(rulerPic);
 		picLabel.setText("A noted " +title);
 		add(picLabel, BorderLayout.WEST);
-		
+		idLabel.setText(getIdentity());		
 	}
 	public void sayHelloTo(Ruler otherRuler)//conversation between rulers
 	{
