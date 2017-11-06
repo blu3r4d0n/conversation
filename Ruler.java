@@ -12,7 +12,7 @@ public class Ruler extends JPanel
 	private Ruler talkedTo;
 	private Color color;
 	private ImageIcon rulerPic;
-	private JLabel picLabel;
+	private JLabel picLabel, idLabel, talkLabel, reportLabel, tbdLabel;
 	//----------------------------------------
 	//Mirror Functions
 	//----------------------------------------
@@ -41,9 +41,9 @@ public class Ruler extends JPanel
 	{return title + " " + name + " of the " + people;
 	}
 
-	public Ruler( String nme, String ttl, String cntry, String ppl, String grtg, Color clr, ImageIcon pto)
+	public Ruler( String nme, String ttl, String cntry, String ppl, String grtg, Color clr, ImageIcon pic)
 		// Remember my info
-	{	rulerPic = pto;
+	{	rulerPic = pic;
 		picLabel = new JLabel(rulerPic);
 		
 		name = nme;
@@ -54,14 +54,20 @@ public class Ruler extends JPanel
 		color = clr;
 		
 		setPreferredSize(new Dimension (500, 300));
+		picLabel = new JLabel("Picture Area");
 		setLayout(new BorderLayout());
+		idLabel = new JLabel("ID Label");
+		add(idLabel, BorderLayout.NORTH);	
+		
 	}
 		
 	public void identify() //I identify myself
 	{
 		System.out.println(greeting + ", I'm " + getIdentity() + " of the glorious " +people+ ".");
 		setBackground(color);
-		add(picLabel);
+		picLabel.setIcon(rulerPic);
+		picLabel.setText("A noted " +title);
+		add(picLabel, BorderLayout.WEST);
 		
 	}
 	public void sayHelloTo(Ruler otherRuler)//conversation between rulers
