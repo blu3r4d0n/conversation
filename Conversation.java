@@ -29,7 +29,8 @@ public class Conversation extends JPanel
 		System.out.println();
 		converse();
 		System.out.println();
-		report();
+		report()
+		addRulers();
 	}
 	public void createRulers() //adds each ruler to the array and creates rulers
 	{
