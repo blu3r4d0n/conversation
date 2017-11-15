@@ -5,6 +5,7 @@
 //********************************************************************
 import java.awt.*;
 import javax.swing.*; 
+import javax.swing.border.*;
 
 public class Ruler extends JPanel
 {	private String name, title, country, people, greeting;
@@ -12,7 +13,7 @@ public class Ruler extends JPanel
 	private Ruler talkedTo;
 	private Color color;
 	private ImageIcon rulerPic;
-	private JLabel picLabel, idLabel, talkLabel, reportLabel, tbdLabel;
+	private JLabel picLabel, idLabel, talkLabel, reportLabel, soundLabel;	
 	//----------------------------------------
 	//Mirror Functions
 	//----------------------------------------
@@ -52,39 +53,56 @@ public class Ruler extends JPanel
 		people = ppl;
 		greeting = grtg;
 		color = clr;
-		
-		setPreferredSize(new Dimension (500, 300));
-		picLabel = new JLabel("Picture Area");
-		setLayout(new BorderLayout());
-		idLabel = new JLabel("ID Label", SwingConstants.CENTER);
-		add(idLabel, BorderLayout.NORTH);	
-			
+		initGraphics();
 	}
 		
+	public void initGraphics()//creates graphics
+	{setBackground(color);
+	setPreferredSize(new Dimension (500, 300));
+	setLayout(new BorderLayout());
+	setBorder(BorderFactory.createLineBorder( new Color(255, 106, 0),3));
+	//picture initialization
+	picLabel = new JLabel("Picture Area", SwingConstants.CENTER);
+	picLabel.setHorizontalTextPosition (SwingConstants.CENTER);
+	picLabel.setVerticalTextPosition (SwingConstants.BOTTOM);
+	add(picLabel, BorderLayout.WEST);
+	//identify
+	idLabel = new JLabel("ID area", SwingConstants.CENTER);
+	add(idLabel, BorderLayout.NORTH);	
+	//report
+	reportLabel = new JLabel("Report Area", SwingConstants.CENTER);
+	add(reportLabel, BorderLayout.SOUTH);
+	//sound label
+	soundLabel = new JLabel("Sound area", SwingConstants.CENTER);
+	add(soundLabel, BorderLayout.EAST);
+	//talking
+	talkLabel = new JLabel("talk area", SwingConstants.CENTER);
+	add(talkLabel, BorderLayout.CENTER);
+
+	}	
 	public void identify() //I identify myself
 	{
-		System.out.println(greeting + ", I'm " + getIdentity() + " of the glorious " +people+ ".");
-		setBackground(color);
+		
 		picLabel.setIcon(rulerPic);
-		picLabel.setText("A noted " +title);
-		add(picLabel, BorderLayout.WEST);
-		idLabel.setText(getIdentity());		
+		picLabel.setText("A noted " + title);
+		idLabel.setText("<html><h2>" + getIdentityWithCountry() + "</h2></html>");
+
+		
 	}
 	public void sayHelloTo(Ruler otherRuler)//conversation between rulers
 	{
-		System.out.println(greeting + ", "+ otherRuler.getIdentityWithCountry() +". This is " + getIdentity() + " and I bring greetings from " + country + ".");
+		talkLabel.setText("<html>" + greeting + ", "+ otherRuler.getIdentityWithCountry() +". This is " + getIdentity() + " and I bring greetings from " + country + ".</html>");
 		numConversations++;
 		talkedTo = otherRuler;
 	}
 	public void report()//report number of times I have spoken
 	{
 		if (numConversations > 1) //More than 1 conversation
-		{System.out.println(greeting + ", this is " + getIdentityWithPeople() + " reporting. I have started " + numConversations +" conversations and the last was with " + talkedTo.getIdentity() + ".");
-		}
+		 reportLabel.setText("<html>" + greeting + ", this is " + getIdentityWithPeople() + " reporting. I have started " + numConversations +" conversations and the last was with " + talkedTo.getIdentity() + ".</html>c");	
 		else if (numConversations == 1) //Only 1 conversation
-		System.out.println("This is " + getIdentityWithPeople() + " reporting. I have started " + numConversations +" conversation and that was with " + talkedTo.getIdentity() + ".");
+	    reportLabel.setText("<html>This is " + getIdentityWithPeople() + " reporting. I have started " + numConversations +" conversation and that was with " + talkedTo.getIdentity() + ".</html>");
 		else //0 conversations
-		System.out.println("This is " + getIdentityWithPeople() + " reporting. I haven't started any conversations because I'm shy.");
+		reportLabel.setText("<html>This is " + getIdentityWithPeople() + " reporting. I haven't started any conversations because I'm shy.</html>");
 	}
 
-}
+	}
