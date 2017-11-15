@@ -34,10 +34,6 @@ public class Conversation extends JPanel
 		setPreferredSize(new Dimension(1100, 900));
 		setLayout(new GridLayout(3,2));
 		createRulers();
-		for (int i=0; i < numRulers; i++)
-		{
-		add(rulerList[i]);
-		}
 		identifyRulers();
 		System.out.println();
 		conversationTimer.start();
@@ -47,12 +43,12 @@ public class Conversation extends JPanel
 	}
 	public void createRulers() //adds each ruler to the array and creates rulers
 	{
-	 rulerList[0] = new Ruler( "Abraham Lincoln", "President", "America", "Americans", "Howdy", Color.blue,new ImageIcon("lincoln.gif") );
-	 rulerList[1] = new Ruler("Cleopatra", "Pharoh", "Egypt", "Egyptians", "Marhaban", Color.green, new ImageIcon("cleo.jpeg"));
-	 rulerList[2] = new Ruler("Hitler", "Fuhrer", "Germany", "Germans", "Guten Tag", Color.red, new ImageIcon("hitler.jpg"));
-	 rulerList[3] = new Ruler("Napoleon", "Emperor", "France", "French", "Bonjour", Color.pink, new ImageIcon("napoleon.jpg"));
-	 rulerList[4] = new Ruler("Churchhill", "Prime Minister", "Britain", "British", "Good day", new Color(142, 27, 137), new ImageIcon("winston.jpg"));
-	 rulerList[5] = new Ruler("Mao Zedong", "Chairman", "China", "Chinese", "Ni hao", new Color(65,198,181), new ImageIcon("mao.jpeg"));
+	 rulerList[0] = new Ruler( "Abraham Lincoln", "President", "America", "Americans", "Howdy", Color.blue,new ImageIcon("src/images/lincoln.jpeg") );
+	 rulerList[1] = new Ruler("Cleopatra", "Queen", "Egypt", "Egyptians", "Marhaban", Color.green, new ImageIcon("src/images/cleo.jpeg"));
+	 rulerList[2] = new Ruler("Hitler", "Fuhrer", "Germany", "Germans", "Guten Tag", Color.red, new ImageIcon("src/images/hitler.jpg"));
+	 rulerList[3] = new Ruler("Napoleon", "Emperor", "France", "French", "Bonjour", Color.pink, new ImageIcon("src/images/napoleon.jpg"));
+	 rulerList[4] = new Ruler("Churchhill", "Prime Minister", "Britain", "British", "Good day", new Color(142, 27, 137), new ImageIcon("src/images/winston.jpg"));
+	 rulerList[5] = new Ruler("Mao Zedong", "Chairman", "China", "Chinese", "Ni hao", new Color(65,198,181), new ImageIcon("src/images/mao.jpeg"));
 	}
 	public void identifyRulers() //Tells rulers to identify themselves
 	{
