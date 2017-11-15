@@ -84,8 +84,7 @@ public class Conversation extends JPanel
 private class ConversationTimerListener implements ActionListener
 	// Has one ruler say hello when timer expires
 {
-	public void actionPerformed(ActionEvent evt) //ActionListener leaves this blank. We must fill
-		//it in with what we want to do when the timer goes off.
+	public void actionPerformed(ActionEvent evt) //calles the coverse method  every 1000 milliseconds
 	{
 		converse();
 	}
@@ -93,8 +92,7 @@ private class ConversationTimerListener implements ActionListener
 private class ReportButtonListener implements ActionListener
 	// has the rulers report when the button is clicked
 {
-	public void actionPerformed(ActionEvent evt) //ActionListener leaves this blank. We must fill
-		//it in with what we want to do when the timer goes off.
+	public void actionPerformed(ActionEvent evt) //when the report button is clicked, it calls the report method
 	{
 		report();
 	}
