@@ -16,7 +16,9 @@ public class Conversation extends JPanel
 	private Timer conversationTimer;
 	private Random gen;
 	private int speakerIndex, listenerIndex;
-	private JButton reportButton;
+	private JButton reportButton, startButton, stopButton;
+	private JPanel rulerPanel, buttonPanel;
+
 	
    //-----------------------------------------------------------------
    //  Initializes various rulers, gets them talking to each other.
@@ -28,18 +30,34 @@ public class Conversation extends JPanel
 		gen = new Random();
 		setBackground(Color.yellow);
 		conversationTimer = new Timer(1000, new ConversationTimerListener());
-		reportButton = new JButton("Report");
-		add(reportButton);
-		reportButton.addActionListener(new ReportButtonListener());
-		setPreferredSize(new Dimension(1100, 900));
-		setLayout(new GridLayout(3,2));
-		createRulers();
+		initButtonPanel();
+		initRulerPanel();
 		identifyRulers();
-		System.out.println();
-		conversationTimer.start();
-		System.out.println();
-		addRulers();
+		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
+	}
+	public void initRulerPanel()
+	{   
+		rulerPanel = new JPanel();
+		add(rulerPanel);
+		rulerPanel.setLayout(new GridLayout(3,2));
+		createRulers();
+		addRulers();
+	}
+	
+	public void initButtonPanel()
+	{
+		buttonPanel = new JPanel();
+		add(buttonPanel);
+		reportButton = new JButton("Report");
+		buttonPanel.add(reportButton);
+		reportButton.addActionListener(new ReportButtonListener());
+		startButton = new JButton("Start");
+		buttonPanel.add(startButton);
+		startButton.addActionListener(new StartButtonListener());
+		stopButton = new JButton("Stop");
+		buttonPanel.add(stopButton);
+		stopButton.addActionListener(new StopButtonListener());
 	}
 	public void createRulers() //adds each ruler to the array and creates rulers
 	{
@@ -77,7 +95,7 @@ public class Conversation extends JPanel
 	{
 	for (int i=0; i < numRulers; i++)
 		{
-		add(rulerList[i]);
+		rulerPanel.add(rulerList[i]);
 		
 	}
 	}
@@ -95,6 +113,22 @@ private class ReportButtonListener implements ActionListener
 	public void actionPerformed(ActionEvent evt) //when the report button is clicked, it calls the report method
 	{
 		report();
+	}
+}
+private class StartButtonListener implements ActionListener
+	// This starts the conversation when the button is pushed
+{
+	public void actionPerformed(ActionEvent evt) //starts the conversation timer
+	{
+		conversationTimer.start();
+	}
+}
+private class StopButtonListener implements ActionListener
+	// This stops the conversation when the button is pushed
+{
+	public void actionPerformed(ActionEvent evt) //stops the conversation timer
+	{
+		conversationTimer.stop();
 	}
 }
 }
