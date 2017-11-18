@@ -5,7 +5,7 @@
 //********************************************************************
 import java.util.Random;
 import java.awt.*;
-import javax.swing.*; 
+import javax.swing.*;
 import java.awt.event.*;
 
 public class Conversation extends JPanel
@@ -17,7 +17,7 @@ public class Conversation extends JPanel
 	private Random gen;
 	private int speakerIndex, listenerIndex;
 	private JButton reportButton;
-	
+
    //-----------------------------------------------------------------
    //  Initializes various rulers, gets them talking to each other.
    //-----------------------------------------------------------------
@@ -39,7 +39,7 @@ public class Conversation extends JPanel
 		conversationTimer.start();
 		System.out.println();
 		addRulers();
-		
+
 	}
 	public void createRulers() //adds each ruler to the array and creates rulers
 	{
@@ -53,16 +53,16 @@ public class Conversation extends JPanel
 	public void identifyRulers() //Tells rulers to identify themselves
 	{
 	for (int i=0; i < numRulers; i++)
-		rulerList[i].identify();	
+		rulerList[i].identify();
 	}
 	public void converse() //Allows the rulers to talk to each other
-	{	
+	{
 				speakerIndex = gen.nextInt(numRulers);
 				listenerIndex = gen.nextInt(numRulers);
 				if (speakerIndex == listenerIndex) //prevents rulers from talking to each other
 				{	if (speakerIndex > 0)		   //subtracts from speakerIndex
-						speakerIndex--; 		   
-					else				
+						speakerIndex--;
+					else
 						speakerIndex++; //adds to speakerIndex
 				}
 					rulerList[speakerIndex].sayHelloTo(rulerList[listenerIndex]);
@@ -73,12 +73,12 @@ public class Conversation extends JPanel
 	for (int i=0; i < numRulers; i++) //each ruler reports
 		rulerList[i].report();
 	}
-	public void addRulers() //adds rulers to the graphics 
+	public void addRulers() //adds rulers to the graphics
 	{
 	for (int i=0; i < numRulers; i++)
 		{
 		add(rulerList[i]);
-		
+
 	}
 	}
 private class ConversationTimerListener implements ActionListener

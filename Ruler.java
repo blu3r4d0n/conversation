@@ -4,7 +4,7 @@
 //  An individual ruler who can talk to others
 //********************************************************************
 import java.awt.*;
-import javax.swing.*; 
+import javax.swing.*;
 import javax.swing.border.*;
 
 public class Ruler extends JPanel
@@ -13,7 +13,7 @@ public class Ruler extends JPanel
 	private Ruler talkedTo;
 	private Color color;
 	private ImageIcon rulerPic;
-	private JLabel picLabel, idLabel, talkLabel, reportLabel, soundLabel;	
+	private JLabel picLabel, idLabel, talkLabel, reportLabel, soundLabel;
 	//----------------------------------------
 	//Mirror Functions
 	//----------------------------------------
@@ -46,7 +46,7 @@ public class Ruler extends JPanel
 		// Remember my info
 	{	rulerPic = pic;
 		picLabel = new JLabel(rulerPic);
-		
+
 		name = nme;
 		title = ttl;
 		country = cntry;
@@ -55,7 +55,7 @@ public class Ruler extends JPanel
 		color = clr;
 		initGraphics();
 	}
-		
+
 	public void initGraphics()//creates graphics
 	{setBackground(color);
 	setPreferredSize(new Dimension (500, 300));
@@ -68,7 +68,7 @@ public class Ruler extends JPanel
 	add(picLabel, BorderLayout.WEST);
 	//identify
 	idLabel = new JLabel("ID area", SwingConstants.CENTER);
-	add(idLabel, BorderLayout.NORTH);	
+	add(idLabel, BorderLayout.NORTH);
 	//report
 	reportLabel = new JLabel("Report Area", SwingConstants.CENTER);
 	add(reportLabel, BorderLayout.SOUTH);
@@ -79,15 +79,15 @@ public class Ruler extends JPanel
 	talkLabel = new JLabel("talk area", SwingConstants.CENTER);
 	add(talkLabel, BorderLayout.CENTER);
 
-	}	
+	}
 	public void identify() //I identify myself
 	{
-		
+
 		picLabel.setIcon(rulerPic);
 		picLabel.setText("A noted " + title);
 		idLabel.setText("<html><h2>" + getIdentityWithCountry() + "</h2></html>");
 
-		
+
 	}
 	public void sayHelloTo(Ruler otherRuler)//conversation between rulers
 	{

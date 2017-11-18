@@ -15,13 +15,13 @@ public class MainConversation
 	{
 		Conversation c;
 		c = new Conversation();
-		
+
 		JFrame frame = new JFrame ("Talking With Rulers of the Past");
 		frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().add( c );
 		frame.pack();
-		frame.setVisible(true);	
-		
+		frame.setVisible(true);
+
 	}
 }
 
