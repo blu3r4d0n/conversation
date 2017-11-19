@@ -25,19 +25,18 @@ public class Conversation extends JPanel
    //-----------------------------------------------------------------
 	public Conversation()
 	{
-		numRulers = 6;
-		rulerList = new Ruler[numRulers];
 		gen = new Random();
 		setBackground(Color.yellow);
 		conversationTimer = new Timer(1000, new ConversationTimerListener());
 		initButtonPanel();
 		initRulerPanel();
 		identifyRulers();
-		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		
+		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));	
 	}
-	public void initRulerPanel()
+	public void initRulerPanel() //Creates the ruler panel, creates rulers, and adds them to the graphics
 	{   
+		numRulers = 6;
+		rulerList = new Ruler[numRulers];
 		rulerPanel = new JPanel();
 		add(rulerPanel);
 		rulerPanel.setLayout(new GridLayout(3,2));
@@ -45,7 +44,7 @@ public class Conversation extends JPanel
 		addRulers();
 	}
 	
-	public void initButtonPanel()
+	public void initButtonPanel()//creates buttons and adds them to the graphics
 	{
 		buttonPanel = new JPanel();
 		add(buttonPanel);
@@ -97,7 +96,7 @@ public class Conversation extends JPanel
 		{
 		rulerPanel.add(rulerList[i]);
 		
-	}
+		}
 	}
 private class ConversationTimerListener implements ActionListener
 	// Has one ruler say hello when timer expires
