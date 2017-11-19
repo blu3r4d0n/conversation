@@ -30,8 +30,6 @@ public class Conversation extends JPanel
    //-----------------------------------------------------------------
 	public Conversation()
 	{
-		numRulers = 6;
-		rulerList = new Ruler[numRulers];
 		gen = new Random();
 		setBackground(Color.yellow);
 		conversationTimer = new Timer(1000, new ConversationTimerListener());
@@ -51,6 +49,8 @@ public class Conversation extends JPanel
 	}
 	public void initRulerPanel()
 	{   
+		numRulers = 6;
+		rulerList = new Ruler[numRulers];
 		rulerPanel = new JPanel();
 		add(rulerPanel);
 		rulerPanel.setLayout(new GridLayout(3,2));
