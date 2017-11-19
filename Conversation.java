@@ -16,62 +16,48 @@ public class Conversation extends JPanel
 	private Timer conversationTimer;
 	private Random gen;
 	private int speakerIndex, listenerIndex;
-<<<<<<< HEAD
-	private JButton reportButton;
-
-=======
 	private JButton reportButton, startButton, stopButton;
 	private JPanel rulerPanel, buttonPanel;
 
 	
->>>>>>> 50e1a34fb865fdf53caffcab31b6927f6b7a9e39
    //-----------------------------------------------------------------
    //  Initializes various rulers, gets them talking to each other.
    //-----------------------------------------------------------------
 	public Conversation()
-	{
-		gen = new Random();
-		setBackground(Color.yellow);
-		conversationTimer = new Timer(1000, new ConversationTimerListener());
-		initButtonPanel();
-		initRulerPanel();
-		identifyRulers();
-<<<<<<< HEAD
-		System.out.println();
-		conversationTimer.start();
-		System.out.println();
-		addRulers();
+        {
+                gen = new Random();
+                setBackground(Color.yellow);
+                conversationTimer = new Timer(1000, new ConversationTimerListener());
+                initButtonPanel();
+                initRulerPanel();
+                identifyRulers();
+                setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        }
+        public void initRulerPanel() //Creates the ruler panel, creates rulers, and adds them to the graphics
+        {
+                numRulers = 6;
+                rulerList = new Ruler[numRulers];
+                rulerPanel = new JPanel();
+                add(rulerPanel);
+                rulerPanel.setLayout(new GridLayout(3,2));
+                createRulers();
+                addRulers();
+        }
 
-=======
-		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		
->>>>>>> 50e1a34fb865fdf53caffcab31b6927f6b7a9e39
-	}
-	public void initRulerPanel()
-	{   
-		numRulers = 6;
-		rulerList = new Ruler[numRulers];
-		rulerPanel = new JPanel();
-		add(rulerPanel);
-		rulerPanel.setLayout(new GridLayout(3,2));
-		createRulers();
-		addRulers();
-	}
-	
-	public void initButtonPanel()
-	{
-		buttonPanel = new JPanel();
-		add(buttonPanel);
-		reportButton = new JButton("Report");
-		buttonPanel.add(reportButton);
-		reportButton.addActionListener(new ReportButtonListener());
-		startButton = new JButton("Start");
-		buttonPanel.add(startButton);
-		startButton.addActionListener(new StartButtonListener());
-		stopButton = new JButton("Stop");
-		buttonPanel.add(stopButton);
-		stopButton.addActionListener(new StopButtonListener());
-	}
+        public void initButtonPanel()//creates buttons and adds them to the graphics
+        {
+                buttonPanel = new JPanel();
+                add(buttonPanel);
+                reportButton = new JButton("Report");
+                buttonPanel.add(reportButton);
+                reportButton.addActionListener(new ReportButtonListener());
+                startButton = new JButton("Start");
+                buttonPanel.add(startButton);
+                startButton.addActionListener(new StartButtonListener());
+                stopButton = new JButton("Stop");
+                buttonPanel.add(stopButton);
+                stopButton.addActionListener(new StopButtonListener());
+        }
 	public void createRulers() //adds each ruler to the array and creates rulers
 	{
 	 rulerList[0] = new Ruler( "Abraham Lincoln", "President", "America", "Americans", "Howdy", Color.blue,new ImageIcon("src/images/incoln.jpeg"));
@@ -108,14 +94,9 @@ public class Conversation extends JPanel
 	{
 	for (int i=0; i < numRulers; i++)
 		{
-<<<<<<< HEAD
 		add(rulerList[i]);
-
-=======
 		rulerPanel.add(rulerList[i]);
-		
->>>>>>> 50e1a34fb865fdf53caffcab31b6927f6b7a9e39
-	}
+		}
 	}
 private class ConversationTimerListener implements ActionListener
 	// Has one ruler say hello when timer expires
